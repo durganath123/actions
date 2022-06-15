@@ -3,6 +3,7 @@ on:
   push:
   workflow_run:
     workflows: ["Regular Job"]
+    types: [completed]
   workflow_dispatch:
 jobs:
   the_normal_job:
