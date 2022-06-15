@@ -1,0 +1,12 @@
+name: Dependentjob
+on:
+  push:
+  workflow_run:
+    workflows: ["Regular Job"]
+  workflow_dispatch:
+jobs:
+  the_normal_job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Run a one-line script
+        run: echo Okay i ran immediately after the regular job ran!!
