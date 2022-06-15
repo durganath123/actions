@@ -1,0 +1,14 @@
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+jobs:
+  this_is_mylib_step:
+    runs-on: ubuntu-latest
+    steps:
+      - name: This step is ran from ${{ inputs.username }} calling another workflow
+        run: echo Okay i ran immediately after calling another workflow: {{ inputs.username }}
+
