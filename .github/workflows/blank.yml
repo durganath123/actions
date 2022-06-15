@@ -19,6 +19,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Running this job just because of someone pushed some code on practice branch
         run: echo Hello, world!
-      - uses: ./.github/actions/myfun
+      - uses: ./.github/actions/myfun@main
         with:
           username: xdfklfjasd
