@@ -20,6 +20,6 @@ jobs:
       - name: Running this job just because of someone pushed some code on practice branch
         run: echo Hello, world!
   actual_job:
-    uses: ./.github/workflows/myfun.yaml
+    uses: ./.github/workflows/myfun.yaml@master
     with:
       username: namefromParameter
