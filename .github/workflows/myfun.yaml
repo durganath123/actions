@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: This step is ran from ${{ inputs.username }} calling another workflow
-        run: echo Okay i ran immediately after calling another workflow: {{ inputs.username }}
+        run: echo Okay i ran immediately after calling another workflow: ${{ inputs.username }}
 
