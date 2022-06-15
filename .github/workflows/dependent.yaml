@@ -8,5 +8,6 @@ jobs:
   the_dependent_job:
     runs-on: ubuntu-latest
     steps: 
-      - name: Run a one-line script
+      - name: This is the step under dependent job 
         run: echo Okay i ran immediately after the regular job ran!!
+
