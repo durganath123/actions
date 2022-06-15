@@ -1,12 +1,11 @@
 name: Dependentjob
-on:
-  push:
+on: 
   workflow_run:
     workflows: ["Regular Job"]
     types: [completed]
   workflow_dispatch:
 jobs:
-  the_normal_job:
+  the_dependent_job:
     runs-on: ubuntu-latest
     steps: 
       - name: Run a one-line script
