@@ -8,7 +8,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  acutal_flow:
+  actual_flow:
     uses: durganath123/actions/.github/workflows/myfun.yaml@master
     with:
       username: namefromParameter
