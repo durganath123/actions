@@ -34,3 +34,15 @@ jobs:
    steps: 
     - name: next level executing dependency
       run: echo This must be executed at next level
+  another_level:
+   needs: [just_checking]
+   runs-on: ubuntu-latest
+   steps: 
+    - name: next level executing dependency
+      run: echo This must be executed at next level  
+  dependent_job:
+   needs: [next_level, another_level]
+   runs-on: ubuntu-latest
+   steps: 
+    - name: next level executing dependency
+      run: echo This must be executed at next level        
