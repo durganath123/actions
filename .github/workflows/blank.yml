@@ -8,19 +8,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  deploy_me:
-    needs: next_level
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest 
-    steps:
-      # Runs a single command using the runners shell
-      - name: Running this job just because of someone pushed some code on practice branch
-        run: echo Hello, world!
   acutal_flow:
     uses: durganath123/actions/.github/workflows/myfun.yaml@master
     with:
       username: namefromParameter
   just_checking:
+    needs: actual_flow
     runs-on: ubuntu-latest
     steps:
       - name: this is the name of step one
@@ -29,20 +22,28 @@ jobs:
         run: echo find
   
   next_level:
-   needs: [just_checking, acutal_flow]
+   needs: [just_checking ]
    runs-on: ubuntu-latest
    steps: 
     - name: next level executing dependency
       run: echo This must be executed at next level
   another_level:
-   needs: [just_checking]
+   needs: [next_level]
    runs-on: ubuntu-latest
    steps: 
     - name: next level executing dependency
       run: echo This must be executed at next level  
   dependent_job:
-   needs: [next_level, another_level]
+   needs: [ another_level]
    runs-on: ubuntu-latest
    steps: 
     - name: next level executing dependency
       run: echo This must be executed at next level        
+  deploy_me:
+    needs: dependent_job
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest 
+    steps:
+      # Runs a single command using the runners shell
+      - name: Running this job just because of someone pushed some code on practice branch
+        run: echo Hello, world!
