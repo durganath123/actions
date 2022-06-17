@@ -25,4 +25,4 @@ jobs:
       - name: this is the name of step one
         run: echo Testing the second test
       - name: okay fine
-      - run: echo find
+        run: echo find
